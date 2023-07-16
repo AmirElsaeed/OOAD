@@ -31,24 +31,11 @@ public class Guitar {
         return serialNumber;
     }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public GuitarSpec getGuitarSpec() {
         return guitarSpec;
     }
-
-    public void setGuitarSpec(GuitarSpec guitarSpec) {
-        this.guitarSpec = guitarSpec;
-    }
-
 }

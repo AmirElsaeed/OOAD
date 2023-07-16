@@ -15,53 +15,60 @@ public class GuitarSpec {
     private String model;
     private Type type;
     private Wood backWood, topWood;
-
-    public GuitarSpec(Builder builder, String model, Type type, Wood backWood, Wood topWood) {
+    private int numString;
+    
+    public GuitarSpec(Builder builder, String model, Type type, Wood backWood, Wood topWood, int numString) {
         this.model = model;
         this.builder = builder;
         this.type = type;
         this.backWood = backWood;
         this.topWood = topWood;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+        this.numString = numString;
     }
 
     public Builder getBuilder() {
         return builder;
     }
 
-    public void setBuilder(Builder builder) {
-        this.builder = builder;
+    public String getModel() {
+        return model;
     }
 
     public Type getType() {
         return type;
     }
 
-    public void setType(Type type) {
-        this.type = type;
-    }
-
     public Wood getBackWood() {
         return backWood;
-    }
-
-    public void setBackWood(Wood backWood) {
-        this.backWood = backWood;
     }
 
     public Wood getTopWood() {
         return topWood;
     }
 
-    public void setTopWood(Wood topWood) {
-        this.topWood = topWood;
+    public int getNumString() {
+        return numString;
     }
+    
+    public boolean matches(GuitarSpec otherSpec) {
+        if(builder != otherSpec.getBuilder())
+            return false;
 
+        if(model != null && !model.equals("") && !model.equals(otherSpec.getModel()))
+            return false;
+
+        if(type != otherSpec.getType())
+            return false;
+
+        if(backWood != otherSpec.getBackWood())
+            return false;
+
+        if(topWood != otherSpec.getTopWood())
+            return false;
+        
+        if(numString != otherSpec.getNumString())
+            return false;
+        
+        return true;
+    }
 }
